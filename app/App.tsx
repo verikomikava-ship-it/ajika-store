@@ -42,8 +42,8 @@ export default function App() {
                 <span className="absolute bottom-0 left-0 md:left-1 text-2xl md:text-3xl">🌶️</span>
               </div>
               <div>
-                <h1 className="text-2xl md:text-3xl font-bold" style={{ color: colors.text }}>
-                  ზაკის აჯიკა
+                <h1 className="text-2xl md:text-3xl font-bold tracking-wide" style={{ color: colors.text }}>
+                  ajika<span className="text-lg md:text-xl opacity-70">.store</span>
                 </h1>
               </div>
             </div>
@@ -66,7 +66,7 @@ export default function App() {
       <section className="py-12 md:py-20 px-4 md:px-8" style={{ backgroundColor: colors.footer }}>
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-3xl md:text-6xl font-bold mb-4 md:mb-6" style={{ color: colors.text }}>
-            ნამდვილი აფხაზური აჯიკა
+            ზაკის ა🌶️იკა
           </h2>
           <p className="text-lg md:text-2xl mb-6 md:mb-8" style={{ color: colors.light }}>
             ტრადიციული რეცეპტით დამზადებული
