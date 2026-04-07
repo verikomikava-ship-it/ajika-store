@@ -43,6 +43,12 @@ export default function AdminOrders() {
     fetchOrders();
   };
 
+  const deleteOrder = async (id: number) => {
+    if (!confirm('ნამდვილად გსურთ წაშლა?')) return;
+    await getSupabase().from('orders').delete().eq('id', id);
+    fetchOrders();
+  };
+
   const handleLogout = async () => {
     await getSupabase().auth.signOut();
     navigate('/admin');
@@ -195,6 +201,12 @@ export default function AdminOrders() {
                           მიწოდებულია
                         </button>
                       )}
+                      <button
+                        onClick={() => deleteOrder(order.id!)}
+                        className="px-3 py-1.5 rounded-lg text-xs font-bold text-red-600 bg-red-50 hover:bg-red-100"
+                      >
+                        წაშლა
+                      </button>
                     </div>
                   </div>
                 </div>
