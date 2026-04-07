@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { LogOut, RefreshCw, Package, Phone, MapPin, Clock } from 'lucide-react';
-import { supabase, type Order } from '../lib/supabase';
+import { getSupabase, type Order } from '../lib/supabase';
 
 const STATUS_LABELS: Record<string, { text: string; color: string; bg: string }> = {
   new: { text: 'ახალი', color: '#C1331E', bg: '#FEE2E2' },
@@ -18,13 +18,13 @@ export default function AdminOrders() {
 
   const fetchOrders = async () => {
     setLoading(true);
-    const { data: session } = await supabase.auth.getSession();
+    const { data: session } = await getSupabase().auth.getSession();
     if (!session.session) {
       navigate('/admin');
       return;
     }
 
-    let query = supabase.from('orders').select('*').order('created_at', { ascending: false });
+    let query = getSupabase().from('orders').select('*').order('created_at', { ascending: false });
     if (filter !== 'all') {
       query = query.eq('status', filter);
     }
@@ -39,12 +39,12 @@ export default function AdminOrders() {
   }, [filter]);
 
   const updateStatus = async (id: number, status: string) => {
-    await supabase.from('orders').update({ status }).eq('id', id);
+    await getSupabase().from('orders').update({ status }).eq('id', id);
     fetchOrders();
   };
 
   const handleLogout = async () => {
-    await supabase.auth.signOut();
+    await getSupabase().auth.signOut();
     navigate('/admin');
   };
 

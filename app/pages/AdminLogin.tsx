@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
-import { supabase } from '../lib/supabase';
+import { getSupabase } from '../lib/supabase';
 
 export default function AdminLogin() {
   const [email, setEmail] = useState('');
@@ -14,7 +14,7 @@ export default function AdminLogin() {
     setLoading(true);
     setError('');
 
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    const { error } = await getSupabase().auth.signInWithPassword({ email, password });
 
     if (error) {
       setError('არასწორი ელ-ფოსტა ან პაროლი');

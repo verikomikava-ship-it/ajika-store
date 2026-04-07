@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Phone, MapPin, User, Play } from 'lucide-react';
-import { supabase } from '../lib/supabase';
+import { getSupabase, isConfigured } from '../lib/supabase';
 
 const colors = {
   primary: '#C1331E',
@@ -37,7 +37,7 @@ export default function HomePage() {
 
     const price = VOLUMES[orderForm.volume] || 0;
 
-    const { error } = await supabase.from('orders').insert({
+    const { error } = await getSupabase().from('orders').insert({
       name: orderForm.name,
       phone: orderForm.phone,
       address: orderForm.address,
