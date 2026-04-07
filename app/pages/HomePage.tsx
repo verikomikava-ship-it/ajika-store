@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Phone, MapPin, User, Play } from 'lucide-react';
 import { getSupabase, isConfigured } from '../lib/supabase';
+import PepperLogo from '../components/PepperLogo';
 
 const colors = {
   primary: '#C1331E',
@@ -65,14 +66,8 @@ export default function HomePage() {
       <header className="py-4 px-4 md:py-6 md:px-8 shadow-lg" style={{ backgroundColor: colors.footer }}>
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2 md:gap-4">
-            <div className="flex items-center gap-2 md:gap-3">
-              <div className="relative w-12 h-12 md:w-16 md:h-16 flex-shrink-0">
-                <span className="absolute top-0 left-3 md:left-4 text-2xl md:text-3xl">🌶️</span>
-                <span className="absolute top-2 md:top-3 left-6 md:left-8 text-2xl md:text-3xl">🌶️</span>
-                <span className="absolute top-4 md:top-6 left-3 md:left-4 text-2xl md:text-3xl">🌶️</span>
-                <span className="absolute top-6 md:top-9 left-1 md:left-2 text-2xl md:text-3xl">🌶️</span>
-                <span className="absolute bottom-0 left-0 md:left-1 text-2xl md:text-3xl">🌶️</span>
-              </div>
+            <div className="flex items-center gap-1 md:gap-2">
+              <PepperLogo size={48} />
               <div>
                 <h1 className="text-2xl md:text-3xl font-bold tracking-wide" style={{ color: colors.text }}>
                   ajika<span className="text-lg md:text-xl opacity-70">.store</span>
@@ -97,9 +92,11 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="py-12 md:py-20 px-4 md:px-8" style={{ backgroundColor: colors.footer }}>
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl md:text-6xl font-bold mb-4 md:mb-6" style={{ color: colors.text }}>
-            ზაკის ა🌶️იკა
-          </h2>
+          <div className="flex items-center justify-center gap-1 mb-4 md:mb-6">
+            <span className="text-3xl md:text-6xl font-bold" style={{ color: colors.text }}>ა</span>
+            <PepperLogo size={72} />
+            <span className="text-3xl md:text-6xl font-bold" style={{ color: colors.text }}>იკა</span>
+          </div>
           <p className="text-lg md:text-2xl mb-6 md:mb-8" style={{ color: colors.light }}>
             ტრადიციული რეცეპტით დამზადებული
           </p>
@@ -317,14 +314,8 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-6 md:mb-8">
             <div className="col-span-2 md:col-span-1">
-              <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
-                <div className="relative w-10 h-10 md:w-12 md:h-12 flex-shrink-0">
-                  <span className="absolute top-0 left-2 text-lg md:text-xl">🌶️</span>
-                  <span className="absolute top-1 md:top-2 left-3 md:left-4 text-lg md:text-xl">🌶️</span>
-                  <span className="absolute top-3 md:top-4 left-2 text-lg md:text-xl">🌶️</span>
-                  <span className="absolute top-5 md:top-6 left-1 text-lg md:text-xl">🌶️</span>
-                  <span className="absolute bottom-0 left-0 text-lg md:text-xl">🌶️</span>
-                </div>
+              <div className="flex items-center gap-1 mb-3 md:mb-4">
+                <PepperLogo size={36} />
                 <h4 className="text-lg md:text-xl font-bold" style={{ color: colors.text }}>აჯიკა</h4>
               </div>
               <p className="text-xs md:text-sm" style={{ color: colors.light }}>ნამდვილი აფხაზური აჯიკა</p>
